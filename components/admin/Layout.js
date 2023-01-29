@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
+import ReceiptIcon from '@mui/icons-material/Receipt';
 
 const drawerWidth = 240;
 
@@ -129,7 +130,7 @@ export default function Layout({ children }) {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <Link href='/admin/dashboard'>
+                    <Link href='/admin/dashboard' className='text-decoration-none text-black'>
                         <ListItem disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
                                 sx={{
@@ -151,7 +152,7 @@ export default function Layout({ children }) {
                             </ListItemButton>
                         </ListItem>
                     </Link>
-                    <Link href='/admin/product'>
+                    <Link href='/admin/product' className='text-decoration-none text-black'>
                         <ListItem disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
                                 sx={{
@@ -170,6 +171,28 @@ export default function Layout({ children }) {
                                     <FastfoodIcon/>
                                 </ListItemIcon>
                                 <ListItemText primary='Product' sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+                    <Link href='/admin/order' className='text-decoration-none text-black'>
+                        <ListItem disablePadding sx={{ display: 'block' }}>
+                            <ListItemButton
+                                sx={{
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
+                                }}
+                            >
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <ReceiptIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary='Order' sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>
                         </ListItem>
                     </Link>
