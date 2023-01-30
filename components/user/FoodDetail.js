@@ -18,29 +18,9 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-const FoodDetail = ({children}) => {
-    const [product, setProduct] = useState({
-        name: "",
-        price: 0,
-        quantity: 0,
-        image: '',
-    });
-    const [categories, setCategories] = useState([])
-    const {id} = useParams();
+const FoodDetail = ({children, myProduct, myCategories, id}) => {
 
-    useEffect(() => {
-        function fetchData() {
-            axios.get(`http://localhost:8000/productDetail/${id}`)
-                .then((res) => {
-                    setProduct(res.data.product);
-                    setCategories(res.data.categories);
-                    console.log(res.data)
-                }).catch((error) => console.log(error)
-            )
-        }
-
-        fetchData()
-    }, []);
+    const product = myProduct
 
     const [tab, setTab] = useState("desc");
     const [enteredName, setEnterName] = useState("");
@@ -164,7 +144,7 @@ const FoodDetail = ({children}) => {
                                     </span>
                                     <p className="category mb-2">
                                         Category:
-                                        {categories.map(category => {
+                                        {myCategories.map(category => {
                                             return <span>{category.name}</span>
                                         })}
                                     </p>

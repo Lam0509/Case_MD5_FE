@@ -33,9 +33,9 @@ const Header = () => {
 
     const headerRef = useRef(null);
 
-    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+    let totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-    const reduxState = useSelector((state) => state);
+    const reduxState = useSelector((state) => state.cart);
 
     const dispatch = useDispatch();
 
@@ -45,20 +45,20 @@ const Header = () => {
 
     const toggleMenu = () => menuRef.current.classList.toggle(`${styles.show__menu}`);
 
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (
-                document.body.scrollTop > 80 ||
-                document.documentElement.scrollTop > 80
-            ) {
-                headerRef.current.classList.add(`${styles.header__shrink}`);
-            } else {
-                headerRef.current.classList.remove(`${styles.header__shrink}`);
-            }
-        });
-
-        // return () => window.removeEventListener("scroll");
-    });
+    // useEffect(() => {
+    //     window.addEventListener("scroll", () => {
+    //         if (
+    //             document.body.scrollTop > 80 ||
+    //             document.documentElement.scrollTop > 80
+    //         ) {
+    //             headerRef.current.classList.add(`${styles.header__shrink}`);
+    //         } else {
+    //             headerRef.current.classList.remove(`${styles.header__shrink}`);
+    //         }
+    //     });
+    //
+    //     return () => window.removeEventListener("scroll");
+    // });
 
     return (
         <header className={styles.header} ref={headerRef}>

@@ -46,7 +46,7 @@ const Register = () => {
             console.log(values);
 
             function fetchData() {
-                axios.post('http://localhost:8000/register', values)
+                axios.post('http://localhost:8080/register', values)
                     .then(() => {
                         router.push('/login')
                     }).catch((error) => console.log(error)
