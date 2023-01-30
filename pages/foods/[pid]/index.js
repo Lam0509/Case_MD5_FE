@@ -6,18 +6,8 @@ import FoodDetail from "../../../components/user/FoodDetail";
 import RecentComments from "../../../components/user/RecentComments";
 import {useRouter} from "next/router";
 import axios from "axios";
+import {CircularProgress} from "@mui/material";
 
-// export default function UserHome() {
-//     return (
-//         <Provider store={store}>
-//             <Layout>
-//                 <FoodDetail>
-//                     <RecentComments/>
-//                 </FoodDetail>
-//             </Layout>
-//         </Provider>
-//     )
-// }
 
 export default function UserHome() {
 
@@ -46,9 +36,9 @@ export default function UserHome() {
         <Provider store={store}>
             <Layout>
                 <FoodDetail id={pid} myProduct={data.product} myCategories={data.categories}>
-                    <RecentComments/>
+                    <RecentComments myAssessment={data.assessment}/>
                 </FoodDetail>
             </Layout>
         </Provider>
-    ) :  <p>Loading..</p>
+    ) :  <p><CircularProgress /></p>
 }

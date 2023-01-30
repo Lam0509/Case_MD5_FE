@@ -38,15 +38,15 @@ const Footer = () => {
                     <Col lg="3" md="4" sm="6">
                         <h5 className={styles.footer__title}>Contact</h5>
                         <ListGroup className="delivery__time-list">
-                            <ListGroupItem className="delivery__time-item border-0 ps-0">
-                                <span>Location: HCM</span>
+                            <ListGroupItem style={{backgroundColor:'#FDE4E4'}} className="delivery__time-item border-0 ps-0">
+                                <span>Location: Hà Nội</span>
                             </ListGroupItem>
-                            <ListGroupItem className="delivery__time-item border-0 ps-0">
+                            <ListGroupItem style={{backgroundColor:'#FDE4E4'}} className="delivery__time-item border-0 ps-0">
                                 <span>Phone: 0336796710</span>
                             </ListGroupItem>
 
-                            <ListGroupItem className="delivery__time-item border-0 ps-0">
-                                <span>Email: nht110699@gmail.com</span>
+                            <ListGroupItem style={{backgroundColor:'#FDE4E4'}} className="delivery__time-item border-0 ps-0">
+                                <span>Email: treattasty@gmail.com</span>
                             </ListGroupItem>
                         </ListGroup>
                     </Col>
@@ -72,14 +72,11 @@ const Footer = () => {
                             </p>
                             <span className={styles.social__links__span}>
                 <a className={styles.social__links__span__a} href="https://www.facebook.com/profile.php?id=100006647792868"><i className={`${styles.social__links__span__i} ri-facebook-line`}></i></a>
-                                {/* <Link to='https://www.facebook.com/profile.php?id=100006647792868'><i class="ri-facebook-line"></i></Link> */}
               </span>
                             <span className={styles.social__links__span}>
-                {/* <Link to='https://github.com/HoangTuan0611'><i class="ri-github-line"></i></Link> */}
                                 <a className={styles.social__links__span__a} href="https://www.linkedin.com/in/hoangtuan99/"><i className={`${styles.social__links__span__i} ri-linkedin-line`}></i></a>
               </span>
                             <span className={styles.social__links__span}>
-                {/* <Link to='https://www.youtube.com/channel/UCwrTzvZP4EZ8Jg2MkhEQUTw'><i class="ri-youtube-line"></i></Link> */}
                                 <a className={styles.social__links__span__a} href="https://www.youtube.com/channel/UCwrTzvZP4EZ8Jg2MkhEQUTw"><i className={`${styles.social__links__span__i} ri-youtube-line`}></i></a>
               </span>
                         </div>

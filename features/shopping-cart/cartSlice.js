@@ -27,8 +27,8 @@ const cartSlice = createSlice({
                 }))
             }
             state = JSON.parse(localStorage.getItem('myCart'))
-            console.log(state)
             const newItem = action.payload;
+            console.log('newItem',newItem)
             state.cartItems = state.cartItems || []
             const existingItem = state.cartItems.find(
                 (item) => item.id === newItem.id
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
                 // note: if u use just redux u shouldn't mute state array, but if u use redux toolkit that will not a problem because redux toolkit clone the array behind the scene
                 state.cartItems.push({
                     id: newItem.id,
-                    title: newItem.title,
+                    name: newItem.name,
                     image01: newItem.image01,
                     price: newItem.price,
                     quantity: 1,
