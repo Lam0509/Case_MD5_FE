@@ -56,9 +56,9 @@ export default function Reviews() {
 
             <Dialog maxWidth='md' fullWidth='md' open={open} onClose={handleClose} style={{ zIndex:999999}}>
                 <DialogTitle>Input your reviews</DialogTitle>
-                <DialogContent>
+                <DialogContent >
                     <section style={{backgroundColor: '#eee'}}>
-                        <MDBContainer style={{marginTop:'-80px'}} className="py-5">
+                        <MDBContainer className="py-5">
                             <MDBRow>
                                 <MDBCol lg="4">
                                     <MDBCardImage
