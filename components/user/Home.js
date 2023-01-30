@@ -19,10 +19,9 @@ import whyImg from "../../assets/user/images/location.png";
 import networkImg from "../../assets/user/images/network.png";
 import TestimonialSlider from "../../components/user/UI/TestimonialSlider";
 import { reviuu } from "../../assets/user/fake-data/reviu";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {loggedIn} from "../../features/auth/authSlice";
-
-
+import {useRouter} from "next/router";
 
 const featureData = [
     {
@@ -43,7 +42,6 @@ const featureData = [
 ];
 
 const Home = () => {
-    const dispatch = useDispatch()
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
@@ -52,13 +50,6 @@ const Home = () => {
     const [allProducts, seeAllProducts] = useState(products);
 
     const [hotPizza, setHotPizza] = useState([]);
-
-    useEffect(()=>{
-        if(localStorage.getItem('token')){
-            dispatch(loggedIn());
-        }
-    })
-
 
     useEffect(() => {
         const filterPizza = products.filter((item) => item.category === "Pizza");

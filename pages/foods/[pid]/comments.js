@@ -7,6 +7,20 @@ import RecentComments from "../../../components/user/RecentComments";
 import {useRouter} from "next/router";
 import axios from "axios";
 import {CircularProgress} from "@mui/material";
+import {useRouter} from "next/router";
+import axios from "axios";
+
+// export default function UserHome() {
+//     return (
+//         <Provider store={store}>
+//             <Layout>
+//                 <FoodDetail>
+//                     <RecentComments/>
+//                 </FoodDetail>
+//             </Layout>
+//         </Provider>
+//     )
+// }
 
 export default function UserHome() {
 

@@ -26,12 +26,22 @@ import {
     MDBListGroup,
     MDBListGroupItem
 } from 'mdb-react-ui-kit';
+import {cartActions} from "../../features/shopping-cart/cartSlice";
+import {useRouter} from "next/router";
+import {useSelector} from "react-redux";
 
 export default function Reviews() {
     const [open, setOpen] = React.useState(false);
 
+    const router = useRouter();
+    const auth = useSelector(state => state.auth)
+
     const handleClickOpen = () => {
-        setOpen(true);
+        if (auth.isLoggedIn) {
+            setOpen(true);
+        } else {
+            router.push('/login')
+        }
     };
 
     const handleClose = () => {

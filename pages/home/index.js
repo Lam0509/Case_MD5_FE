@@ -6,10 +6,8 @@ import React from "react";
 
 export default function UserHome() {
     return (
-        <Provider store={store}>
-            <Layout>
-                <Home/>
-            </Layout>
-        </Provider>
+        <Layout>
+            <Home/>
+        </Layout>
     )
 }
