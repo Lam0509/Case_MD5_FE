@@ -17,16 +17,22 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import {loggedIn} from "../../features/auth/authSlice";
 
 const FoodDetail = ({children, myProduct, myCategories, id}) => {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(localStorage.getItem('token')){
+            dispatch(loggedIn());
+        }
+    })
 
     const product = myProduct
 
-    const [tab, setTab] = useState("desc");
     const [enteredName, setEnterName] = useState("");
     const [enteredEmail, setEnterEmail] = useState("");
     const [reviewMsg, setReviewMsg] = useState("");
-    const dispatch = useDispatch();
 
     const {name, price, quantity, image} = product;
     const [previewImg, setPreviewImg] = useState(product.image);
@@ -186,48 +192,8 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                         </Link>
                                     </h6>
                                     <Reviews/>
-
                                 </div>
-                                {/*{tab === "desc" ? (*/}
-                                {/*  <div className="tab__content">*/}
-                                {/*    /!*<p>{desc}</p>*!/*/}
-                                {/*  </div>*/}
-                                {/*) : (*/}
-                                {/*  <div className="tab__form mb-5">*/}
-                                {/*    <form className="form" onSubmit={submitHandle}>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <input*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Enter your name"*/}
-                                {/*          onChange={(e) => setEnterName(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        />*/}
-                                {/*      </div>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <input*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Enter your email"*/}
-                                {/*          onChange={(e) => setEnterEmail(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        />*/}
-                                {/*      </div>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <textarea*/}
-                                {/*          rows={5}*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Write your review"*/}
-                                {/*          onChange={(e) => setReviewMsg(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        ></textarea>*/}
-                                {/*      </div>*/}
-                                {/*      <button type="submit" className="addToCart__btn">*/}
-                                {/*        Submit*/}
-                                {/*      </button>*/}
-                                {/*    </form>*/}
-                                {/*  </div>*/}
-                                {/*)}*/}
                             </Col>
-                            {/*<Outlet/>*/}
                             {children}
                         </Row>
                     </Container>

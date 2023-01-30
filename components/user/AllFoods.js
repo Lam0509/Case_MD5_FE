@@ -34,16 +34,6 @@ const AllFoods = (props) => {
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
-    // useEffect(() => {
-    //     function fetchData() {
-    //         axios.get('http://localhost:8000/admin/product/search')
-    //             .then((res) => {
-    //                 setProductData(res.data)
-    //             }).catch((error) => console.log(error)
-    //         )
-    //     } fetchData()
-    // }, []);
-
     return (
         <Helmet title="All Foods">
             <CommonSection title="All Foods" />
