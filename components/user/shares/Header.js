@@ -91,10 +91,11 @@ const Header = () => {
 
                     {/* nav  right icons */}
                     <div className="nav__right d-flex align-items-center gap-3">
-            <span className={styles.cart__icon} onClick={toggleCart}>
+                        {auth.isLoggedIn ? (<>
+                        <span className={styles.cart__icon} onClick={toggleCart}>
               <i className={`ri-shopping-basket-line ${styles.cart__icon__i}`}></i>
               <span className={styles.cart__badge}>{totalQuantity}</span>
-            </span>
+            </span></>) : ''}
 
                         {auth.isLoggedIn ? (<ProfileMenu/>) : ( <span className="user">
               <Link href="/login">

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, {useRef, useState} from "react";
 import Helmet from "../../components/user/shares/Helmet";
 import CommonSection from "../../components/user/UI/CommonSection";
 import { Container, Row, Col } from "reactstrap";
@@ -10,8 +10,17 @@ import axios from "axios";
 import {useDispatch} from "react-redux";
 import {loggedIn} from "../../features/auth/authSlice";
 import {useRouter} from "next/router";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const Login = () => {
+
+    const [child, setChild] = useState(<Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={true}
+    >
+        <CircularProgress color="inherit" />
+    </Backdrop>)
+
     const dispatch = useDispatch()
     // const navigate = useNavigate();
     const router = useRouter()
@@ -29,12 +38,10 @@ const Login = () => {
                 .required('Password is required')
         }),
         onSubmit: (values) => {
-            console.log(values);
-
             function fetchData() {
                 axios.post('http://localhost:8000/login', values)
-                    .then((data) => {
-                        localStorage.setItem('token',data.data.token);
+                    .then((res) => {
+                        localStorage.setItem('token',res.data.token);
                         dispatch(loggedIn())
                         router.push("/home");
                     }).catch((error) => console.log(error)

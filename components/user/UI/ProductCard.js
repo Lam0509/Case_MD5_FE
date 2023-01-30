@@ -1,28 +1,35 @@
 import React from "react";
 import styles from '../../../styles/user/product-card.module.css'
 import Link from 'next/link'
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { cartActions } from "../../../features/shopping-cart/cartSlice";
 import Snackbar from '@mui/material/Snackbar';
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import {useRouter} from "next/router";
 
 const ProductCard = (props) => {
     const { id, name, image, price } = props.item;
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
+    const auth = useSelector(state => state.auth)
+    const router = useRouter()
 
     const addToCart = () => {
-        dispatch(
-            cartActions.addItem({
-                id,
-                name,
-                // image,
-                price,
-            })
-        );
-        setOpen(true);
+        if (auth.isLoggedIn) {
+            dispatch(
+                cartActions.addItem({
+                    id,
+                    name,
+                    // image,
+                    price,
+                })
+            );
+            setOpen(true);
+        } else {
+            router.push('/login')
+        }
     };
 
     const handleClose = (event, reason) => {
