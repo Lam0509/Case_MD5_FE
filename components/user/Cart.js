@@ -5,13 +5,13 @@ import { Container, Row, Col } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import styles from '../../styles/user/cart-page.module.css'
 import { cartActions } from "../../features/shopping-cart/cartSlice";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import {loggedIn} from "../../features/auth/authSlice";
 
 const Cart = () => {
     const dispatch = useDispatch()
-    const cartItems = useSelector((state) => state.cart.cartItems);
-    const totalAmount = useSelector(state=>state.cart.totalAmount);
+    const cartItems = useSelector(state => state.cart.cartItems);
+    const totalAmount = useSelector(state=> state.cart.totalAmount);
 
     useEffect(()=>{
         if(localStorage.getItem('token')){
@@ -25,7 +25,7 @@ const Cart = () => {
                 <Container>
                     <Row>
                         <Col lg="12">
-                            {cartItems.length === 0 ? (
+                            {!cartItems ? (
                                 <h5 className="text-center">Your cart is empty</h5>
                             ) : (
                                 <table className={`${styles.table} table-bordered`}>
@@ -50,10 +50,10 @@ const Cart = () => {
                                 <p>Taxes and shipping will caculator at checkout</p>
                                 <div className={styles.cart__page__btn}>
                                     <button className="addToCart__btn me-4">
-                                        <Link to='/foods'>Continue Shopping</Link>
+                                        <Link href='/foods'>Continue Shopping</Link>
                                     </button>
                                     <button className="addToCart__btn">
-                                        <Link to='/checkout'>Proceed to checkout</Link>
+                                        <Link href='/checkout'>Proceed to checkout</Link>
                                     </button>
                                 </div>
                             </div>

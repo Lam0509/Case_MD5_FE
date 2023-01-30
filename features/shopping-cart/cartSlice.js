@@ -2,6 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {}
 if (typeof window !== 'undefined') {
+    if (!localStorage.getItem('myCart')) {
+        localStorage.setItem('myCart', JSON.stringify({
+            cartItems: [],
+            totalQuantity: 0,
+            totalAmount: 0
+        }))
+    }
     initialState = JSON.parse(localStorage.getItem('myCart'))
 }
 
