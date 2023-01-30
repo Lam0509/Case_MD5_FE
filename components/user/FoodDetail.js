@@ -18,9 +18,10 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-const FoodDetail = ({children, dataProduct, cates, id}) => {
+const FoodDetail = ({children, myProduct, myCategories, id}) => {
 
-    const product= dataProduct
+    const product = myProduct
+
     const [tab, setTab] = useState("desc");
     const [enteredName, setEnterName] = useState("");
     const [enteredEmail, setEnterEmail] = useState("");
@@ -143,7 +144,7 @@ const FoodDetail = ({children, dataProduct, cates, id}) => {
                                     </span>
                                     <p className="category mb-2">
                                         Category:
-                                        {cates.map(category => {
+                                        {myCategories.map(category => {
                                             return <span>{category.name}</span>
                                         })}
                                     </p>
@@ -226,6 +227,7 @@ const FoodDetail = ({children, dataProduct, cates, id}) => {
                                 {/*  </div>*/}
                                 {/*)}*/}
                             </Col>
+                            {/*<Outlet/>*/}
                             {children}
                         </Row>
                     </Container>
