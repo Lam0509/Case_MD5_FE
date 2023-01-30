@@ -6,8 +6,6 @@ import {
     MDBCardBody,
 
 } from 'mdb-react-ui-kit';
-import ImageAvatars from "../../components/user/UI/UserProfile/avatar";
-import UploadButtons from "../../components/user/UI/UserProfile/button";
 import DataTable from "../../components/user/UI/UserProfile/table";
 
 export default function OrdersPage() {

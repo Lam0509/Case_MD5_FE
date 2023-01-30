@@ -8,8 +8,15 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import Link from "next/link";
+import {useDispatch} from "react-redux";
+import {loggedOut} from "../../../../features/auth/authSlice";
+import {useRouter} from "next/router";
+
 
 export default function ProfileMenu() {
+    const router = useRouter()
+
+    const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
 
@@ -24,6 +31,12 @@ export default function ProfileMenu() {
 
         setOpen(false);
     };
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        dispatch(loggedOut());
+        router.push("/home");
+
+    }
 
     function handleListKeyDown(event) {
         if (event.key === 'Tab') {
@@ -47,14 +60,6 @@ export default function ProfileMenu() {
     return (
         <Stack direction="row" spacing={2}>
             <div style={{zIndex: 9999}}>
-                {/*<Button*/}
-                {/*    ref={anchorRef}*/}
-                {/*    id="composition-button"*/}
-                {/*    aria-controls={open ? 'composition-menu' : undefined}*/}
-                {/*    aria-expanded={open ? 'true' : undefined}*/}
-                {/*    aria-haspopup="true"*/}
-                {/*    onClick={handleToggle}*/}
-                {/*>*/}
                 <i className="ri-user-line fs-6"
                    style={{cursor: "pointer"}}
                    ref={anchorRef}
@@ -93,7 +98,7 @@ export default function ProfileMenu() {
                                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                                         </Link>
                                         <MenuItem onClick={handleClose}>My account</MenuItem>
-                                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>
                             </Paper>

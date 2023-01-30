@@ -45,21 +45,6 @@ const Header = () => {
 
     const toggleMenu = () => menuRef.current.classList.toggle(`${styles.show__menu}`);
 
-    // useEffect(() => {
-    //     window.addEventListener("scroll", () => {
-    //         if (
-    //             document.body.scrollTop > 80 ||
-    //             document.documentElement.scrollTop > 80
-    //         ) {
-    //             headerRef.current.classList.add(`${styles.header__shrink}`);
-    //         } else {
-    //             headerRef.current.classList.remove(`${styles.header__shrink}`);
-    //         }
-    //     });
-    //
-    //     return () => window.removeEventListener("scroll");
-    // });
-
     return (
         <header className={styles.header} ref={headerRef}>
             <Container>
@@ -71,7 +56,6 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    {/* ======== menu ====== */}
                     <div className={styles.navigation} ref={menuRef} onClick={toggleMenu}>
                         <div className={`d-flex align-items-center gap-5 ${styles.menu}`}>
                             {nav__links.map((item, index) => (
@@ -79,9 +63,6 @@ const Header = () => {
                                     className={styles.menu__a}
                                     href={item.path}
                                     key={index}
-                                    // className={(navClass) =>
-                                    //     navClass.isActive ? "active__menu" : ""
-                                    // }
                                 >
                                     {item.display}
                                 </Link>

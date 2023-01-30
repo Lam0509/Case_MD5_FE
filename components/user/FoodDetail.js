@@ -118,7 +118,6 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                         className="img__item mb-2"
                                         onClick={() => setPreviewImg(product.image)}
                                     >
-                                        {/*<img src={product.image} alt="" className="w-50" />*/}
                                         <img
                                             src='https://bepmina.vn/wp-content/uploads/2021/07/cach-lam-khoai-tay-chien-scaled.jpeg'
                                             alt="" className="w-50"/>
@@ -127,7 +126,6 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                             </Col>
                             <Col md="4">
                                 <div className="product__main-img">
-                                    {/*<img src={image} alt="" className="w-100" />*/}
                                     <img
                                         src='https://bepmina.vn/wp-content/uploads/2021/07/cach-lam-khoai-tay-chien-scaled.jpeg'
                                         alt="" className="w-100"/>

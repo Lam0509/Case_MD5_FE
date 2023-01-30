@@ -59,53 +59,6 @@ const Checkout = () => {
                                     Payment
                                 </Button>
                             </Form>
-                            {/*<form className="checkout__form" onSubmit={submitHandler}>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="text"*/}
-                            {/*            placeholder="Enter your name"*/}
-                            {/*            onChange={(e) => setEnterName(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="email"*/}
-                            {/*            placeholder="Enter your email"*/}
-                            {/*            onChange={(e) => setEnterEmail(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="number"*/}
-                            {/*            placeholder="Phone number"*/}
-                            {/*            onChange={(e) => setEnterNumber(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="text"*/}
-                            {/*            placeholder="Country"*/}
-                            {/*            onChange={(e) => setEnterCountry(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="text"*/}
-                            {/*            placeholder="City"*/}
-                            {/*            onChange={(e) => setEnterCity(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form__group">*/}
-                            {/*        <input*/}
-                            {/*            type="number"*/}
-                            {/*            placeholder="Postal code"*/}
-                            {/*            onChange={(e) => setPostalCode(e.target.value)}*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*    <Button style={{margin:'20px'}} type="submit"  variant="contained" color="error">*/}
-                            {/*        Payment*/}
-                            {/*    </Button>*/}
-                            {/*</form>*/}
                         </Col>
                         <Col style={{marginTop: '30px'}} lg="4" md="6">
                             <div className={styles.checkout__bill}>

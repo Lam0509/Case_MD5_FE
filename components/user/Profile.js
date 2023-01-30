@@ -17,10 +17,6 @@ import {
     MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import ProfileList from "../../components/user/UI/UserProfile/profile";
-import ImageAvatars from "../../components/user/UI/UserProfile/avatar";
-import UploadButtons from "../../components/user/UI/UserProfile/button";
-import {Outlet} from "react-router-dom";
-import ProfilePageUpdate from "./ProfileUpdate";
 
 export default function ProfilePage({children}) {
     return (
@@ -37,7 +33,6 @@ export default function ProfilePage({children}) {
                     <MDBCol lg="8">
                         <MDBCard className="mb-4">
                             <MDBCardBody>
-                                {/*<Outlet/>*/}
                                 {children}
                             </MDBCardBody>
                         </MDBCard>
