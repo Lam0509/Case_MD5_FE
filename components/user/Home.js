@@ -347,7 +347,7 @@ const Home = () => {
                                     quaerat cumque dolore quod dicta!
                                 </p>
 
-                                <TestimonialSlider />
+                                {/*<TestimonialSlider />*/}
                             </div>
                         </Col>
                         <Col lg="6" md="6">

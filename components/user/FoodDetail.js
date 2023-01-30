@@ -92,7 +92,7 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                 <CommonSection title={name}/>
 
                 <section>
-                    <Container>
+                    <Container style={{marginTop:'30px'}}>
                         <Row>
                             <Col md="2">
                                 <div className="product__images">
@@ -143,23 +143,22 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                     }}><ThumbUpAltIcon style={{color: 'white', fontSize: 'medium'}}/> Liked
                                     </div>
                                     <h2 className="product__title mb-3">{name}</h2>
-                                    <i>Address: 17T4 Hapulico - Thanh Xuân - Hà Nội</i>
+                                    <b>Address: </b><i>17T4 Hapulico - Thanh Xuân - Hà Nội</i>
                                     <BasicRating/>
                                     <span className="product__price">
-                                    Price: <span>{price}</span>
+                                    <b>Price:</b> <span>{price}</span>
                                     </span>
-                                    <p className="category mb-2">
-                                        Category:
-                                        {myCategories.map(category => {
-                                            return <span>{category.name}</span>
+                                    <p  className="category mb-2">
+                                        <b>Category:</b> {myCategories.map(category => {
+                                            return <div>{category.name} </div>
                                         })}
                                     </p>
-                                    <p style={{color: '#6cc942'}}>Open: <AccessTimeIcon
+                                    <p style={{color: '#6cc942'}}><b>Open:</b> <AccessTimeIcon
                                         style={{fontSize: "small"}}/> 07:00 - 20:30</p>
                                     <hr/>
                                     <div className='row mb-4'>
                                         <div className='col-lg-3' style={{position: "relative"}}>
-                                            <p style={{marginBottom: 0}}>Service Fee</p>
+                                            <b style={{marginBottom: 0}}>Service Fee</b>
                                             <p style={{color: '#df2020', fontWeight: 'bold'}}>0,04% sFee</p>
                                             <span style={{
                                                 width: '116px',
@@ -175,13 +174,13 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                             |
                                         </div>
                                         <div className='col-lg-8'>
-                                            <p style={{marginBottom: 0}}>Service By</p>
+                                            <b style={{marginBottom: 0}}>Service By</b>
                                             <p style={{color: '#df2020', fontWeight: 'bold'}}>Tasty Treat</p>
                                         </div>
                                     </div>
-                                    <button onClick={addItem} className="addToCart__btn">
-                                        Add to Cart
-                                    </button>
+                                    <Button onClick={addItem} variant="contained" color="error">
+                                        Add to cart
+                                    </Button>
                                 </div>
                             </Col>
                             <Col lg="12">
