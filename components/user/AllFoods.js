@@ -25,7 +25,7 @@ const AllFoods = (props) => {
     return (<Helmet title="All Foods">
             <CommonSection title="All Foods"/>
             <section>
-                <Container>
+                <Container style={{marginBottom: '40px'}}>
                     <Row>
                         <Col style={{marginTop:'20px'}} lg="6" md="6" sm="6" xs='12'>
                             <div

@@ -41,10 +41,10 @@ const Cart = () => {
                                 <p>Taxes and shipping will caculator at checkout</p>
                                 <div className={styles.cart__page__btn}>
                                     <Button variant="contained" color="error">
-                                        <Link style={{color: 'white'}} href='/foods'>Continue Shopping</Link>
+                                        <Link style={{color: 'white', textDecoration: 'none'}} href='/foods'>Continue Shopping</Link>
                                     </Button>
                                     <Button style={{margin: '20px'}} variant="contained" color="error">
-                                        <Link style={{color: 'white'}} href='/checkout'>Proceed to checkout</Link>
+                                        <Link style={{color: 'white', textDecoration: 'none'}} href='/checkout'>Proceed to checkout</Link>
                                     </Button>
                                 </div>
                             </div>

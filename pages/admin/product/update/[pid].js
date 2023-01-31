@@ -18,29 +18,25 @@ export async function getServerSideProps(context) {
 export default function MyFormUpdate(props) {
     const router = useRouter()
     const { pid } = router.query
-    const [product, setProduct] = useState({
-        name: '',
-        image: '',
-        quantity: '',
-        price: '',
-        status: '',
-        category: ''
+    const [data, setData] = useState({
+        product: {},
+        categories: [],
+        assessment: [],
     });
 
     useEffect(() => {
         function fetchData() {
             axios.get(`http://localhost:8000/admin/product/detail/${pid}`).then(res => {
-                // setProductCategories(res.data.categories);
-                setProduct(res.data.productSelected[0]);
+                setData(res.data);
             })
         }
         fetchData();
     }, [])
 
-    if (product.id && props.categories.length !== 0) {
+    if (data.categories.length !== 0 && props.categories.length !== 0) {
         return (
             <Layout>
-                <Update categories={props.categories} product={product} id={pid}/>
+                <Update categories={props.categories} product={data.product} proCates={data.categories} id={pid}/>
             </Layout>
         )
     } else {

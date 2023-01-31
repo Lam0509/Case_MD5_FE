@@ -64,7 +64,7 @@ const ProductCard = (props) => {
             {/*</div>*/}
             <div className="product__content">
                 <h5 className={styles.product__content__h5}>
-                    <Link href={`/foods/${id}`}>{name}</Link>
+                    <Link href={`/foods/${id}`} style={{textDecoration: 'none', color: 'black'}}>{name}</Link>
                 </h5>
                 <div className="d-flex align-items-center justify-content-between">
                     <span className={styles.product__price}>{price}</span>

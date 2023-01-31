@@ -41,7 +41,7 @@ const Carts = () => {
                         Subtotal : <span className={styles.cart__button__h6__span}>${subtotalAmount}</span>
                     </h6>
                     <button className={styles.cart__button__button}>
-                        <Link href="/checkout">Checkout</Link>
+                        <Link href="/checkout" style={{textDecoration: 'none', color: "black", fontWeight: 'bold'}}>Checkout</Link>
                     </button>
                 </div>
             </ListGroup>

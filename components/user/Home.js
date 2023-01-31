@@ -129,7 +129,7 @@ const Home = () => {
                                         Order now <i className="ri-arrow-right-s-line"></i>
                                     </button>
                                     <button className={`${styles1.all__foods__btn} ${styles1.hero__btns__button}`}>
-                                        <Link href="/foods">See all foods</Link>
+                                        <Link href="/foods" style={{textDecoration: 'none'}}>See all foods</Link>
                                     </button>
                                 </div>
                             </div>

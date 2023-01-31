@@ -24,14 +24,14 @@ export default function ProfilePage({children}) {
             <MDBContainer className="py-0">
                 <MDBRow>
                     <MDBCol lg="4">
-                        <MDBCard className="mb-4">
+                        <MDBCard className="mb-4" style={{marginTop: '30px'}}>
                             <MDBCardBody className="text-center">
                                 <ProfileList/>
                             </MDBCardBody>
                         </MDBCard>
                     </MDBCol>
                     <MDBCol lg="8">
-                        <MDBCard className="mb-4">
+                        <MDBCard className="mb-4" style={{marginTop: '30px'}}>
                             <MDBCardBody>
                                 {children}
                             </MDBCardBody>

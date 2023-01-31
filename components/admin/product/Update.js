@@ -27,7 +27,7 @@ export default function Update(props) {
             quantity: props.product.quantity,
             image: props.product.image,
             status: props.product.status,
-            category: props.product.categories.map(category => category.id.toString()),
+            category: props.proCates.map(category => category.id.toString()),
             description: props.product.description
         },
         onSubmit: values => {
@@ -38,7 +38,7 @@ export default function Update(props) {
                     })
             } else {
                 const desertRef = ref(storage, props.product.image);
-                deleteObject(desertRef).then(() => {
+                if (desertRef._service._url === undefined) {
                     const storageRef = ref(storage, `/product-upload/${formik.values.image[0].name}`)
                     const uploadTask = uploadBytesResumable(storageRef, formik.values.image[0]);
                     uploadTask.on(
@@ -56,9 +56,29 @@ export default function Update(props) {
                             });
                         }
                     );
-                }).catch((error) => {
-                    console.log('Error!!!')
-                });
+                } else {
+                    deleteObject(desertRef).then(() => {
+                        const storageRef = ref(storage, `/product-upload/${formik.values.image[0].name}`)
+                        const uploadTask = uploadBytesResumable(storageRef, formik.values.image[0]);
+                        uploadTask.on(
+                            "state_changed",
+                            (snapshot) => {
+                            },
+                            (err) => console.log(err),
+                            () => {
+                                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                                    formik.values.image = url
+                                    axios.post(`http://localhost:8000/admin/product/update/${props.id}`, values)
+                                        .then(res => {
+                                            router.push('/admin/product')
+                                        })
+                                });
+                            }
+                        );
+                    }).catch((error) => {
+                        console.log('Error!!!')
+                    });
+                }
             }
         }
     })
@@ -112,13 +132,13 @@ export default function Update(props) {
                             <div className='row' style={{marginTop: '32px'}}>
                                 <div className='col-lg-9 row'>
                                     <h5>Add Category</h5>
-                                    {props.product.categories && (
+                                    {props.proCates && (
                                         <>
                                             {props.categories.map((category, index) => {
                                                 return (
                                                     <FormGroup className='col-md-6' key={`${category.id}+${index}`}>
                                                         <FormControlLabel control={<Checkbox name='category'
-                                                                                             defaultChecked={props.product.categories.some(item => item.id === category.id)}
+                                                                                             defaultChecked={props.proCates.some(item => item.id === category.id)}
                                                                                              key={category.id}
                                                                                              onChange={formik.handleChange}
                                                                                              value={category.id}/>}

@@ -68,14 +68,14 @@ const Footer = () => {
                             <p className={`${styles.social__links__p} m-0`}>
                                 Follow:
                             </p>
-                            <span className={styles.social__links__span}>
-                <a className={styles.social__links__span__a} href="https://www.facebook.com/profile.php?id=100006647792868"><i className={`${styles.social__links__span__i} ri-facebook-line`}></i></a>
+                            <span className={styles.social__links__span} >
+                <a style={{textDecoration: 'none'}} className={styles.social__links__span__a} href="https://www.facebook.com/profile.php?id=100006647792868"><i className={`${styles.social__links__span__i} ri-facebook-line`}></i></a>
               </span>
                             <span className={styles.social__links__span}>
-                                <a className={styles.social__links__span__a} href="https://www.linkedin.com/in/hoangtuan99/"><i className={`${styles.social__links__span__i} ri-linkedin-line`}></i></a>
+                                <a style={{textDecoration: 'none'}} className={styles.social__links__span__a} href="https://www.linkedin.com/in/hoangtuan99/"><i className={`${styles.social__links__span__i} ri-linkedin-line`}></i></a>
               </span>
                             <span className={styles.social__links__span}>
-                                <a className={styles.social__links__span__a} href="https://www.youtube.com/channel/UCwrTzvZP4EZ8Jg2MkhEQUTw"><i className={`${styles.social__links__span__i} ri-youtube-line`}></i></a>
+                                <a style={{textDecoration: 'none'}} className={styles.social__links__span__a} href="https://www.youtube.com/channel/UCwrTzvZP4EZ8Jg2MkhEQUTw"><i className={`${styles.social__links__span__i} ri-youtube-line`}></i></a>
               </span>
                         </div>
                     </Col>

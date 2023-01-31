@@ -93,7 +93,7 @@ export default function ProfileMenu() {
                                         aria-labelledby="composition-button"
                                         onKeyDown={handleListKeyDown}
                                     >
-                                        <Link href='/profile'>
+                                        <Link href='/profile' style={{textDecoration: 'none', color: 'black'}}>
                                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                                         </Link>
                                         <MenuItem onClick={handleClose}>My account</MenuItem>

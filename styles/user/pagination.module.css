@@ -11,6 +11,7 @@
 }
 
 .paginationBtns a{
+    text-decoration: none;
     padding: 5px 13px;
     background: #212245;
     color: #fff !important;

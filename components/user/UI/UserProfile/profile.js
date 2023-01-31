@@ -32,7 +32,7 @@ export default function ProfileList() {
                 <ListItemIcon>
                     <PersonIcon />
                 </ListItemIcon>
-                <Link href='/profile/update'>
+                <Link href='/profile/update' style={{textDecoration: 'none', color: "black"}}>
                     <ListItemText primary="Profile Update" />
                 </Link>
             </ListItemButton>
@@ -40,7 +40,7 @@ export default function ProfileList() {
                 <ListItemIcon>
                     <ShoppingCartIcon />
                 </ListItemIcon>
-                <Link href='/profile/orders'>
+                <Link href='/profile/orders' style={{textDecoration: 'none', color: 'black'}}>
                     <ListItemText primary="Order information" />
                 </Link>
             </ListItemButton>

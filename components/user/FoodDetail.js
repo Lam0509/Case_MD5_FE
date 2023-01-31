@@ -14,6 +14,8 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {useRouter} from "next/router";
+import Chip from '@mui/material/Chip';
+import CategoryIcon from '@mui/icons-material/Category';
 
 const FoodDetail = ({children, myProduct, myCategories, id}) => {
 
@@ -89,7 +91,7 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                 <CommonSection title={name}/>
 
                 <section>
-                    <Container style={{marginTop:'30px'}}>
+                    <Container style={{marginTop:'30px', marginBottom: '40px'}}>
                         <Row>
                             <Col md="2">
                                 <div className="product__images">
@@ -145,7 +147,8 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                     </span>
                                     <p  className="category mb-2">
                                         <b>Category:</b> {myCategories.map(category => {
-                                            return <div>{category.name} </div>
+                                            // return <div>{category.name} </div>
+                                            return <Chip size='small' icon={<CategoryIcon />} className='me-2' label={category.name} />
                                         })}
                                     </p>
                                     <p style={{color: '#6cc942'}}><b>Open:</b> <AccessTimeIcon

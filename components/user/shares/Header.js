@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-
 import { Container } from "reactstrap";
 import logo from "../../../assets/user/images/res-logo.png";
 import Link from 'next/link'
@@ -45,11 +44,11 @@ const Header = () => {
     const toggleMenu = () => menuRef.current.classList.toggle(`${styles.show__menu}`);
 
     return (
-        <header className={styles.header} ref={headerRef}>
+        <header className={`${styles.header} ${styles.header__shrink}`} ref={headerRef}>
             <Container>
                 <div className="nav__wrapper d-flex align-items-center justify-content-between">
                     <div className={styles.logo}>
-                        <Link href='/home'>
+                        <Link href='/home' style={{textDecoration: 'none'}}>
                             <img src={logo.src} className={styles.logo__img} alt="logo" />
                             <h5 className={styles.logo__h5}>Tasty Treat</h5>
                         </Link>
@@ -59,6 +58,7 @@ const Header = () => {
                         <div className={`d-flex align-items-center gap-5 ${styles.menu}`}>
                             {nav__links.map((item, index) => (
                                 <Link
+                                    style={{textDecoration: 'none'}}
                                     className={styles.menu__a}
                                     href={item.path}
                                     key={index}
@@ -79,7 +79,7 @@ const Header = () => {
 
                         {auth.isLoggedIn ? (<ProfileMenu/>) : ( <span className="user">
               <Link href="/login">
-                <LoginIcon/>
+                <LoginIcon style={{color: "#df2020"}}/>
               </Link>
             </span>)}
 
