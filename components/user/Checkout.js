@@ -2,12 +2,19 @@ import React, {useState} from "react";
 import Helmet from "../../components/user/shares/Helmet";
 import CommonSection from "../../components/user/UI/CommonSection";
 import {Col, Container, Row} from "reactstrap";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import styles from '../../styles/user/checkout.module.css'
 import Button from "@mui/material/Button";
 import Form from 'react-bootstrap/Form';
+import axios from 'axios'
+import {useRouter} from "next/router";
+import {cartActions} from "../../features/shopping-cart/cartSlice";
 
 const Checkout = () => {
+    const dispatch = useDispatch()
+    const router = useRouter()
+    const cart = useSelector(state => state.cart.cartItems)
+    const user = useSelector(state => state.auth.currentUser)
     const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
     const shippingCost = 30;
     const totalAmount = cartTotalAmount + shippingCost;
@@ -18,18 +25,22 @@ const Checkout = () => {
     const [enterCity, setEnterCity] = useState("");
     const [postalCode, setPostalCode] = useState("");
     const shippingInfo = [];
-    const submitHandler = (e) => {
-        e.preventDefault();
-        const userShippingAddress = {
-            name: enterName,
-            email: enterEmail,
-            phone: enterNumber,
-            country: enterCountry,
-            city: enterCity,
-            postalCode: postalCode,
-        };
-        shippingInfo.push(userShippingAddress);
-        console.log(shippingInfo);
+    const submitHandler = async () => {
+
+        let myData = {
+            myCart: cart,
+            userId: user.id
+        }
+        await axios.post('http://localhost:8000/admin/order/add', myData)
+            .then(res => {
+                localStorage.setItem('myCart', JSON.stringify({
+                    cartItems: [],
+                    totalQuantity: 0,
+                    totalAmount: 0
+                }))
+                dispatch(cartActions.removeCart())
+                router.push('/profile/orders')
+            })
     };
     return (<Helmet title="Checkout">
             <CommonSection title="Your Cart"/>
@@ -55,7 +66,7 @@ const Checkout = () => {
                                     <Form.Label>Address</Form.Label>
                                     <Form.Control type="text" placeholder="Enter address"/>
                                 </Form.Group>
-                                <Button style={{margin: '20px'}} type="submit" variant="contained" color="error">
+                                <Button style={{margin: '20px'}} type="button" variant="contained" color="error" onClick={submitHandler}>
                                     Payment
                                 </Button>
                             </Form>

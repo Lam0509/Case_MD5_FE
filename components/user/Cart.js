@@ -6,19 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import styles from '../../styles/user/cart-page.module.css'
 import {cartActions} from "../../features/shopping-cart/cartSlice";
 import Link from 'next/link';
-import {loggedIn} from "../../features/auth/authSlice";
 import Button from "@mui/material/Button";
 import Table from 'react-bootstrap/Table';
 
 const Cart = () => {
-    const dispatch = useDispatch()
     const cartItems = useSelector(state => state.cart.cartItems);
     const totalAmount = useSelector(state => state.cart.totalAmount);
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            dispatch(loggedIn());
-        }
-    })
     return (<Helmet title="Cart">
             <CommonSection title="Your Cart"/>
             <section>

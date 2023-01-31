@@ -4,8 +4,6 @@ import logo from "../../../assets/user/images/res-logo.png";
 
 import styles from '../../../styles/user/footer.module.css';
 
-import Link from 'next/link'
-
 const Footer = () => {
     return (
         <footer className={styles.footer}>

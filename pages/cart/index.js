@@ -5,20 +5,17 @@ import React, {useEffect, useState} from "react";
 import Cart from "../../components/user/Cart";
 import MyBackDrop from "../../components/user/shares/BackDrop";
 import {useRouter} from "next/router";
-import {loggedIn} from "../../features/auth/authSlice";
-import Login from "../../components/user/Login";
+import {authActions} from "../../features/auth/authSlice";
 
 export default function UserHome() {
-
+    const dispatch = useDispatch();
     const [child, setChild] = useState(<MyBackDrop/>)
     const router = useRouter()
-
-    const dispatch = useDispatch();
 
     useEffect(() => {
         const logIn = localStorage.getItem('token') !== null ? true : false
         if (logIn) {
-            dispatch(loggedIn())
+            dispatch(authActions.loggedIn())
             setChild(<Cart/>)
         } else {
             router.push('/login')

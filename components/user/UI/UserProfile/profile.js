@@ -7,8 +7,10 @@ import ListItemText from '@mui/material/ListItemText';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link'
+import {useSelector} from "react-redux";
 
 export default function ProfileList() {
+    const user = useSelector(state => state.auth.currentUser)
     const [open, setOpen] = React.useState(true);
 
     const handleClick = () => {
@@ -22,7 +24,7 @@ export default function ProfileList() {
             aria-labelledby="nested-list-subheader"
             subheader={
                 <ListSubheader component="div" id="nested-list-subheader">
-                    Name: Đoàn Thị Yến
+                    Name: {user.name}
                 </ListSubheader>
             }
         >

@@ -6,7 +6,6 @@ import {
     MDBCardBody,
 
 } from 'mdb-react-ui-kit';
-import ProfileList from "../../components/user/UI/UserProfile/profile";
 import ImageAvatars from "../../components/user/UI/UserProfile/avatar";
 import UploadButtons from "../../components/user/UI/UserProfile/button";
 import TextField from "@mui/material/TextField";

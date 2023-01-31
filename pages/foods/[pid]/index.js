@@ -1,44 +1,48 @@
 import Layout from "../../../components/user/Layout";
 import store from "../../../store/store";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import React, {useEffect, useState} from "react";
 import FoodDetail from "../../../components/user/FoodDetail";
 import RecentComments from "../../../components/user/RecentComments";
 import {useRouter} from "next/router";
 import axios from "axios";
-import {CircularProgress} from "@mui/material";
-
+import MyBackDrop from "../../../components/user/shares/BackDrop";
+import {authActions} from "../../../features/auth/authSlice";
 
 export default function UserHome() {
+    const [child, setChild] = useState(<MyBackDrop/>)
+
+    const dispatch = useDispatch();
 
     const router = useRouter();
     const { pid } = router.query;
-    const [data, setData] = useState({
-        product: '',
-        categories: [],
-        assessment: []
-
-    })
 
     useEffect(() => {
         function fetchData() {
             axios.get(`http://localhost:8000/admin/product/detail/${pid}`)
         .then((res) => {
-                setData(res.data)
+            const logIn = localStorage.getItem('token') !== null ? true : false
+            if (logIn) {
+                dispatch(authActions.loggedIn())
+                setChild(<FoodDetail id={pid} myProduct={res.data.product} myCategories={res.data.categories}>
+                    <RecentComments myAssessment={res.data.assessment}/>
+                </FoodDetail>)
+            } else {
+                setChild(<FoodDetail id={pid} myProduct={res.data.product} myCategories={res.data.categories}>
+                    <RecentComments myAssessment={res.data.assessment}/>
+                </FoodDetail>)
+            }
             }).catch((error) => console.log(error)
             )
         }
-
         fetchData()
     }, [pid]);
 
-    return data.product !== '' && data.categories.length !== 0 && data.assessment.length !== 0 ?  (
+    return (
         <Provider store={store}>
             <Layout>
-                <FoodDetail id={pid} myProduct={data.product} myCategories={data.categories}>
-                    <RecentComments myAssessment={data.assessment}/>
-                </FoodDetail>
+                {child}
             </Layout>
         </Provider>
-    ) :  <p><CircularProgress /></p>
+    )
 }

@@ -1,16 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {Outlet, useParams} from "react-router-dom";
 import Link from 'next/link'
 import Helmet from "../../components/user/shares/Helmet";
 import CommonSection from "../../components/user/UI/CommonSection";
 import {Container, Row, Col} from "reactstrap";
-import ProductCard from "../../components/user/UI/ProductCard";
 import {useDispatch, useSelector} from "react-redux";
 import {cartActions} from "../../features/shopping-cart/cartSlice";
-import axios from "axios";
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import BasicRating from "../../components/user/UI/Rating";
-import CircleIcon from '@mui/icons-material/Circle';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import Reviews from "./Review";
 import Button from '@mui/material/Button';
@@ -190,48 +186,8 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                         </Link>
                                     </h6>
                                     <Reviews/>
-
                                 </div>
-                                {/*{tab === "desc" ? (*/}
-                                {/*  <div className="tab__content">*/}
-                                {/*    /!*<p>{desc}</p>*!/*/}
-                                {/*  </div>*/}
-                                {/*) : (*/}
-                                {/*  <div className="tab__form mb-5">*/}
-                                {/*    <form className="form" onSubmit={submitHandle}>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <input*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Enter your name"*/}
-                                {/*          onChange={(e) => setEnterName(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        />*/}
-                                {/*      </div>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <input*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Enter your email"*/}
-                                {/*          onChange={(e) => setEnterEmail(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        />*/}
-                                {/*      </div>*/}
-                                {/*      <div className="form__group">*/}
-                                {/*        <textarea*/}
-                                {/*          rows={5}*/}
-                                {/*          type="text"*/}
-                                {/*          placeholder="Write your review"*/}
-                                {/*          onChange={(e) => setReviewMsg(e.target.value)}*/}
-                                {/*          required*/}
-                                {/*        ></textarea>*/}
-                                {/*      </div>*/}
-                                {/*      <button type="submit" className="addToCart__btn">*/}
-                                {/*        Submit*/}
-                                {/*      </button>*/}
-                                {/*    </form>*/}
-                                {/*  </div>*/}
-                                {/*)}*/}
                             </Col>
-                            {/*<Outlet/>*/}
                             {children}
                         </Row>
                     </Container>

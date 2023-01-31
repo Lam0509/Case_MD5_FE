@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
@@ -9,11 +8,12 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import Link from "next/link";
 import {useDispatch} from "react-redux";
-import {loggedOut} from "../../../../features/auth/authSlice";
+import {authActions} from "../../../../features/auth/authSlice";
 import {useRouter} from "next/router";
 
 
 export default function ProfileMenu() {
+
     const router = useRouter()
 
     const dispatch = useDispatch()
@@ -33,9 +33,8 @@ export default function ProfileMenu() {
     };
     const handleLogout = () => {
         localStorage.removeItem("token");
-        dispatch(loggedOut());
+        dispatch(authActions.loggedOut());
         router.push("/home");
-
     }
 
     function handleListKeyDown(event) {

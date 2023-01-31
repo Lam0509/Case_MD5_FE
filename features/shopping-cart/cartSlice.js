@@ -94,6 +94,15 @@ const cartSlice = createSlice({
             localStorage.setItem('myCart', JSON.stringify({...state}))
             return state
         },
+        // delete all after checkout
+        removeCart(state, action) {
+            state = {
+                cartItems: [],
+                totalQuantity: 0,
+                totalAmount: 0
+            }
+            return state
+        }
     },
 });
 

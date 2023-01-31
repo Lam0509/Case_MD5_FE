@@ -3,14 +3,13 @@ import Helmet from "../../components/user/shares/Helmet";
 import CommonSection from "../../components/user/UI/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 import Link from 'next/link'
-import {useNavigate} from "react-router-dom";
 import {useFormik} from 'formik'
 import * as Yup from 'yup';
 import axios from "axios";
 import {useDispatch} from "react-redux";
-import {loggedIn} from "../../features/auth/authSlice";
 import {useRouter} from "next/router";
 import {Backdrop, CircularProgress} from "@mui/material";
+import {authActions} from "../../features/auth/authSlice";
 
 const Login = () => {
 
@@ -42,7 +41,7 @@ const Login = () => {
                 axios.post('http://localhost:8000/login', values)
                     .then((res) => {
                         localStorage.setItem('token',res.data.token);
-                        dispatch(loggedIn())
+                        dispatch(authActions.loggedIn())
                         router.push("/home");
                     }).catch((error) => console.log(error)
                 )

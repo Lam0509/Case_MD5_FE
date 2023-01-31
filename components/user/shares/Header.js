@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 
 import { Container } from "reactstrap";
 import logo from "../../../assets/user/images/res-logo.png";
 import Link from 'next/link'
 import { useSelector, useDispatch } from "react-redux";
-import NestedList from "../UI/Profile/profile-list";
 import LoginIcon from '@mui/icons-material/Login';
 import 'remixicon/fonts/remixicon.css'
 import { cartUiActions } from "../../../features/shopping-cart/CartUiSlice";

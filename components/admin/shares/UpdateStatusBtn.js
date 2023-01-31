@@ -20,6 +20,7 @@ export default function UpdateStatusBtn(props) {
     return (
         <FormControl sx={{ minWidth: 120 }} size='small'>
             <Select
+                disabled={status === 'Đã giao' ? true : false}
                 value={status}
                 onChange={handleChange}
                 displayEmpty

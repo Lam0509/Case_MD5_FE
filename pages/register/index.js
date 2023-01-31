@@ -1,10 +1,10 @@
 import Layout from "../../components/user/Layout";
 import store from "../../store/store";
-import {Provider, useSelector, useDispatch} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import React, {useEffect, useState} from "react";
 import Register from "../../components/user/Register";
 import {useRouter} from "next/router";
-import {loggedIn} from "../../features/auth/authSlice";
+import {authActions} from "../../features/auth/authSlice";
 import MyBackDrop from "../../components/user/shares/BackDrop";
 
 export default function UserHome() {
@@ -18,7 +18,7 @@ export default function UserHome() {
     useEffect(() => {
         const logIn = localStorage.getItem('token') !== null ? true : false
         if (logIn) {
-            dispatch(loggedIn())
+            dispatch(authActions.loggedIn())
             router.push('/home')
         } else {
             setChild(<Register/>)

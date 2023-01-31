@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Helmet from "../../components/user/shares/Helmet";
 import CommonSection from "../../components/user/UI/CommonSection";
 import {Col, Container, Row} from "reactstrap";
@@ -6,16 +6,8 @@ import ProductCard from "../../components/user/UI/ProductCard";
 import stylesAllFoods from '../../styles/user/all-foods.module.css'
 import stylesPagination from '../../styles/user/pagination.module.css'
 import ReactPaginate from "react-paginate";
-import {loggedIn} from "../../features/auth/authSlice";
-import {useDispatch} from "react-redux";
 
 const AllFoods = (props) => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            dispatch(loggedIn());
-        }
-    })
     const [searchItem, setSearchItem] = useState("");
     const [productData, setProductData] = useState(props.data);
     const [pageNumber, setPageNumber] = useState(0);
