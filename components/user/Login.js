@@ -63,7 +63,7 @@ const Login = () => {
 
                         <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
                             <MDBTabsItem>
-                                <MDBTabsLink onClick={() => handleJustifyClick('tab1')}
+                                <MDBTabsLink className='text-bg-danger' onClick={() => handleJustifyClick('tab1')}
                                              active={justifyActive === 'tab1'}>
                                     Login
                                 </MDBTabsLink>
@@ -71,7 +71,7 @@ const Login = () => {
                             <MDBTabsItem>
                                 <MDBTabsLink onClick={() => handleJustifyClick('tab2')}
                                              active={justifyActive === 'tab2'}>
-                                    Register
+
                                 </MDBTabsLink>
                             </MDBTabsItem>
                         </MDBTabs>
@@ -103,7 +103,7 @@ const Login = () => {
                                                      label='Remember me'/>
                                         <a href="#">Forgot password?</a>
                                     </div>
-                                    <Button style={{marginLeft:'250px'}} type="submit" variant="contained" color="primary" className="addToCart__btn">
+                                    <Button style={{marginLeft:'250px'}} type="submit" variant="contained" color="error" className="addToCart__btn">
                                         Sign In
                                     </Button>
                                 </form>

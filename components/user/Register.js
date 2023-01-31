@@ -34,8 +34,11 @@ const Register = () => {
             gender: Yup.string()
                 .required('Gender is required'),
             address: Yup.string()
+                .min(5, 'Your address must be at least 5 characters long')
                 .required('Address is required'),
             phone: Yup.string()
+                .min(8, 'Your phone must be at least 8 characters long')
+                .max(11, 'Your phone must be under 11 characters long')
                 .required('Phone is required'),
             email: Yup.string()
                 .email('Invalid email address')
@@ -65,16 +68,14 @@ const Register = () => {
                     <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
                         <MDBTabsItem>
                             <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-                                Login
                             </MDBTabsLink>
                         </MDBTabsItem>
                         <MDBTabsItem>
-                            <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
+                            <MDBTabsLink className='text-bg-danger' onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
                                 Register
                             </MDBTabsLink>
                         </MDBTabsItem>
                     </MDBTabs>
-
                     <MDBTabsContent>
 
                         <MDBTabsPane show={justifyActive === 'tab2'}>
@@ -86,7 +87,7 @@ const Register = () => {
                                           placeholder="Full name"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.name && formik.touched.name && (<p>{formik.errors.name}</p>)}
+                                {formik.errors.name && formik.touched.name && (<p style={{color: 'red'}}>{formik.errors.name}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type="number"
                                           name="age"
@@ -94,7 +95,7 @@ const Register = () => {
                                           placeholder="Age"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.age && formik.touched.age && (<p>{formik.errors.age}</p>)}
+                                {formik.errors.age && formik.touched.age && (<p style={{color: 'red'}}>{formik.errors.age}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type="text"
                                           name="gender"
@@ -102,7 +103,7 @@ const Register = () => {
                                           placeholder="Gender"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.gender && formik.touched.gender && (<p>{formik.errors.gender}</p>)}
+                                {formik.errors.gender && formik.touched.gender && (<p style={{color: 'red'}}>{formik.errors.gender}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type="text"
                                           name="address"
@@ -110,7 +111,7 @@ const Register = () => {
                                           placeholder="Address"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.address && formik.touched.address && (<p>{formik.errors.address}</p>)}
+                                {formik.errors.address && formik.touched.address && (<p style={{color: 'red'}}>{formik.errors.address}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type="text"
                                           name="phone"
@@ -118,7 +119,7 @@ const Register = () => {
                                           placeholder="Phone"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.phone && formik.touched.phone && (<p>{formik.errors.phone}</p>)}
+                                {formik.errors.phone && formik.touched.phone && (<p style={{color: 'red'}}>{formik.errors.phone}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type='email'
                                           name="email"
@@ -126,7 +127,7 @@ const Register = () => {
                                           placeholder="Email"
                                           required
                                           onChange={formik.handleChange}/>
-                                {formik.errors.email && formik.touched.email && (<p>{formik.errors.email}</p>)}
+                                {formik.errors.email && formik.touched.email && (<p style={{color: 'red'}}>{formik.errors.email}</p>)}
                                 <MDBInput wrapperClass='mb-4'
                                           type='password'
                                           name="password"
@@ -135,7 +136,7 @@ const Register = () => {
                                           required
                                           onChange={formik.handleChange}
                                 />
-                                {formik.errors.password && formik.touched.password && (<p>{formik.errors.password}</p>)}
+                                {formik.errors.password && formik.touched.password && (<p style={{color: 'red'}}>{formik.errors.password}</p>)}
 
                                 <div className='d-flex justify-content-center mb-4'>
                                     <MDBCheckbox name='flexCheck' id='flexCheckDefault'
@@ -146,7 +147,7 @@ const Register = () => {
                                 </div>
 
 
-                                <Button style={{marginLeft:'250px'}} type="submit" variant="contained" color="primary" className="addToCart__btn">
+                                <Button style={{marginLeft:'250px'}} type="submit" variant="contained" color="error" className="addToCart__btn">
                                     Sign Up
                                 </Button>
                             </form>
