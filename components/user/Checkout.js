@@ -52,21 +52,21 @@ const Checkout = () => {
                             <Form>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter name"/>
+                                    <Form.Control type="text" value={user.name}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email"/>
+                                    <Form.Control type="email" value={user.email}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>Phone</Form.Label>
-                                    <Form.Control type="phone" placeholder="Enter phone"/>
+                                    <Form.Control type="phone" value={user.phone}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>Address</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter address"/>
+                                    <Form.Control type="text" value={user.address}/>
                                 </Form.Group>
-                                <Button style={{margin: '20px'}} type="button" variant="contained" color="error" onClick={submitHandler}>
+                                <Button style={{margin: '20px', marginLeft: 0}} type="button" variant="contained" color="error" onClick={submitHandler}>
                                     Payment
                                 </Button>
                             </Form>

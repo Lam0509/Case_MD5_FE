@@ -7,14 +7,11 @@ import {
 
 } from 'mdb-react-ui-kit';
 import ImageAvatars from "../../components/user/UI/UserProfile/avatar";
-import UploadButtons from "../../components/user/UI/UserProfile/button";
-import TextField from "@mui/material/TextField";
-import SelectGender from "../../components/user/UI/UserProfile/select";
-import Box from "@mui/material/Box";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import {useSelector} from "react-redux";
 
 export default function ProfilePageUpdate() {
+    const user = useSelector(state => state.auth.currentUser)
+
     return (
 
         <MDBCardBody>
@@ -26,11 +23,7 @@ export default function ProfilePageUpdate() {
             <hr/>
             <MDBRow>
                 <MDBCol sm="3">
-                    <MDBCardText>Update avatar</MDBCardText>
                     <ImageAvatars/>
-                </MDBCol>
-                <MDBCol sm="9" style={{marginTop: '40px'}}>
-                    <UploadButtons/>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -39,13 +32,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Full Name</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Name" variant="outlined" />
-                    </Box>
+                    <MDBCardText>{user.name}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -54,13 +41,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Age</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Age" variant="outlined" />
-                    </Box>
+                    <MDBCardText>{user.age}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -69,7 +50,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Gender</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <SelectGender/>
+                    <MDBCardText>{user.gender}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -78,13 +59,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Phone</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Phone" variant="outlined" />
-                    </Box>
+                    <MDBCardText>{user.phone}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -93,13 +68,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Email</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Email" variant="outlined" />
-                    </Box>
+                    <MDBCardText>{user.email}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -108,13 +77,7 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Address</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Address" variant="outlined" />
-                    </Box>
+                    <MDBCardText>{user.address}</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
@@ -123,19 +86,10 @@ export default function ProfilePageUpdate() {
                     <MDBCardText>Password</MDBCardText>
                 </MDBCol>
                 <MDBCol sm="9">
-                    <Box
-                        style={{margin:'-10px'}}
-                        component="form" sx={{'& > :not(style)': { m: 1, width: '10ch' },}}
-                        noValidate
-                        autoComplete="off">
-                        <TextField style={{width:'250px',margin:'3px'}} size='small' id="outlined-basic" label="Password" variant="outlined" />
-                    </Box>
+                    <MDBCardText>*******</MDBCardText>
                 </MDBCol>
             </MDBRow>
             <hr/>
-            <Stack spacing={2} direction="row">
-                <Button type='submit' variant="contained">Update</Button>
-            </Stack>
         </MDBCardBody>
     )
 }

@@ -2,6 +2,8 @@ import * as React from 'react';
 import {useSelector} from "react-redux";
 import axios from "axios"
 import {useRouter} from "next/router";
+import Table from 'react-bootstrap/Table';
+import MyDialog from "../../shares/Dialog";
 
 export default function DataTable() {
     const router = useRouter()
@@ -16,17 +18,26 @@ export default function DataTable() {
     }
     return (
         <div style={{height: 400, width: '100%'}}>
-            <table>
+            <Table striped bordered hover>
+                <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Shipper</th>
                     <th>Status</th>
+                    <th>Detail</th>
                     <th>Action</th>
                 </tr>
-                {user.orders.map(item => {
+                </thead>
+                <tbody>
+                {user.orders.map((item, index) => {
                     return (
                         <tr>
-                            <td>{item.id}</td>
+                            <td>{index+1}</td>
+                            <td>{item.date}</td>
+                            <td>{item.shipper.name}</td>
                             <td>{item.status}</td>
+                            <td>{<MyDialog/>}</td>
                             {item.status === 'Đã giao' ?
                                 <td>No action</td> :
                                 item.status === 'Đang giao' ?
@@ -40,7 +51,8 @@ export default function DataTable() {
                         </tr>
                     )
                 })}
-            </table>
+                </tbody>
+            </Table>
         </div>
     );
 }

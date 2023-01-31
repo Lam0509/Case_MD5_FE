@@ -96,7 +96,6 @@ export default function ProfileMenu() {
                                         <Link href='/profile' style={{textDecoration: 'none', color: 'black'}}>
                                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                                         </Link>
-                                        <MenuItem onClick={handleClose}>My account</MenuItem>
                                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                     </MenuList>
                                 </ClickAwayListener>

@@ -252,7 +252,7 @@ const Home = () => {
             </section>
 
             <section className={styles.why__choose__us}>
-                <Container>
+                <Container className='mt-4'>
                     <Row>
                         <Col lg="6" md="6">
                             <img src={whyImg.src} alt="why-tasty-treat" className="w-100" />
@@ -324,7 +324,7 @@ const Home = () => {
             </section>
 
             <section>
-                <Container>
+                <Container className='mt-5 mb-3'>
                     <Row>
                         <Col lg="6" md="6">
                             <div className="testimonial">
