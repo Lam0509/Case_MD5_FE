@@ -22,7 +22,7 @@ const ProductCard = (props) => {
                 cartActions.addItem({
                     id,
                     name,
-                    // image,
+                    image,
                     price,
                 })
             );
@@ -59,9 +59,9 @@ const ProductCard = (props) => {
 
     return (
         <div className={styles.product__item}>
-            {/*<div className="product__img">*/}
-            {/*    <img src={image} alt="product-img" className="w-50" />*/}
-            {/*</div>*/}
+            <div className="product__img">
+                <img src={image} alt="product-img" className="w-50" />
+            </div>
             <div className="product__content">
                 <h5 className={styles.product__content__h5}>
                     <Link href={`/foods/${id}`} style={{textDecoration: 'none', color: 'black'}}>{name}</Link>

@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+    MDBCol,
+    MDBRow,
+    MDBCardText,
+    MDBCardBody,
+} from 'mdb-react-ui-kit';
+import DataTable from "../../components/user/UI/UserProfile/table";
 import Table from "@mui/material/Table";
 import {MDBCardBody, MDBCardText, MDBCol, MDBRow} from "mdb-react-ui-kit";
 import DataTable from "../admin/shares/TableData";

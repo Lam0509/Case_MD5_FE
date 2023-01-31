@@ -15,7 +15,6 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import {useRouter} from "next/router";
 import Chip from '@mui/material/Chip';
-import CategoryIcon from '@mui/icons-material/Category';
 
 const FoodDetail = ({children, myProduct, myCategories, id}) => {
 
@@ -126,7 +125,7 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                             <Col md="4">
                                 <div className="product__main-img">
                                     <img
-                                        src='https://bepmina.vn/wp-content/uploads/2021/07/cach-lam-khoai-tay-chien-scaled.jpeg'
+                                        src={product.image}
                                         alt="" className="w-100"/>
                                 </div>
                             </Col>
@@ -148,7 +147,7 @@ const FoodDetail = ({children, myProduct, myCategories, id}) => {
                                     <p  className="category mb-2">
                                         <b>Category:</b> {myCategories.map(category => {
                                             // return <div>{category.name} </div>
-                                            return <Chip size='small' icon={<CategoryIcon />} className='me-2' label={category.name} />
+                                            return <Chip size='small' className='me-2' label={category.name} />
                                         })}
                                     </p>
                                     <p style={{color: '#6cc942'}}><b>Open:</b> <AccessTimeIcon
